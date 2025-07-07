@@ -1,0 +1,24 @@
+<div class="tech">
+    <div class="grid-view">
+    <mat-card class="news-card" *ngFor = "let item of techArticle" (click)="selectedArticle = item">
+        <img [src] = 'item.urlToImage' (error)="item.urlToImage = '/newspaper.jpeg'" alt="news" class="week-img">
+        <p class="date">{{item.publishedAt | date : 'shortDate'}}</p>
+        <h2 class="title">{{item.title}}</h2>
+    </mat-card>
+</div>
+</div>
+<div class="overlay" *ngIf="selectedArticleUrl">
+<div class="iframe-modal">
+    <button class="close-btn" (click)="selectedArticleUrl = null">×</button>
+    <iframe [src]="selectedArticleUrl | safeUrl" frameborder="0"></iframe>
+</div>
+</div>
+<div class="article-overlay" *ngIf="selectedArticle" (click)="selectedArticle = null">
+<div class="article-popup" (click)="$event.stopPropagation()">
+    <img [src]="selectedArticle.urlToImage" alt="Image" class="popup-img" />
+    <h2 class="popup-title">{{ selectedArticle.title }}</h2>
+    <p class="popup-date">{{ selectedArticle.publishedAt | date:'mediumDate' }}</p>
+    <p class="popup-description">{{ selectedArticle.description }}</p>
+    <button class="popup-link" (click)="openInIframe(selectedArticle.url)">Read Full Article</button>
+</div>
+</div>

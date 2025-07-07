@@ -1,0 +1,34 @@
+mat-toolbar{
+    padding: 0rem;
+    height: auto;
+}
+.news24{
+    font-size: 1.5rem;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+    align-items:end;
+}
+.n24{
+    font-size: 3rem;
+    font-weight: bolder;
+    color: rgb(250, 195, 15);
+}
+.toolbar{
+    background-color: white;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 1px solid black;
+}
+mat-toolbar button {
+  font-size: 1.2rem;
+}
+.buttons{
+    display: flex;
+    gap: 2rem;
+}
+.contact{
+    background-color: rgb(250, 195, 15);
+}

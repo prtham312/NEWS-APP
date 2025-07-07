@@ -1,0 +1,36 @@
+<div class="scroll-container">
+<div class="scroll-row">
+    <ng-container *ngFor="let item of scrollArticle.concat(scrollArticle)">
+    <mat-card class="scroll-card" (click)="selectedArticle = item">
+        <img [src]="item.urlToImage || '/newspaper.jpeg'" (error)="item.urlToImage = '/newspaper.jpeg'" class="card-img" />
+        <p class="date">{{ item.publishedAt | date: 'shortDate' }}</p>
+        <h2 class="title">{{ item.title }}</h2>
+    </mat-card>
+    </ng-container>
+</div>
+</div>
+
+<div class="grid-view">
+  <mat-card class="grid-card" *ngFor="let item of remainingArticle" (click)="selectedArticle = item">
+    <img [src]="item.urlToImage || '/newspaper.jpeg'" (error)="item.urlToImage = '/newspaper.jpeg'" class="card-img" />
+    <p class="date">{{ item.publishedAt | date: 'shortDate' }}</p>
+    <h2 class="title">{{ item.title }}</h2>
+</mat-card>
+</div>
+
+<div class="article-overlay" *ngIf="selectedArticle" (click)="selectedArticle = null">
+<div class="article-popup" (click)="$event.stopPropagation()">
+    <img [src]="selectedArticle.urlToImage" (error)="selectedArticle.urlToImage = '/newspaper.jpeg'" alt="Image" class="popup-img" />
+    <h2 class="popup-title">{{ selectedArticle.title }}</h2>
+    <p class="popup-date">{{ selectedArticle.publishedAt | date:'mediumDate' }}</p>
+    <p class="popup-description">{{ selectedArticle.description }}</p>
+    <button class="popup-link" (click)="openInIframe(selectedArticle.url)">Read Full Article</button>
+</div>
+</div>
+
+<div class="overlay" *ngIf="selectedArticleUrl">
+<div class="iframe-modal">
+    <button class="close-btn" (click)="selectedArticleUrl = null">×</button>
+    <iframe [src]="selectedArticleUrl | safeUrl" frameborder="0"></iframe>
+</div>
+</div>

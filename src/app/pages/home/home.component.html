@@ -1,1 +1,55 @@
-<p>home works!</p>
+<div class="home">
+    <div class="top">
+        <div class="left" *ngIf="featuredArticle">
+            <div class="featured-card" [ngStyle]="{ 'background-image': 'url(' + featuredArticle.urlToImage + ')' }">
+                <div class="overlays">
+                <span class="label">FEATURED</span>
+                <h2 class="title">{{ featuredArticle.title }}</h2>
+                <p class="date">{{ featuredArticle.publishedAt | date: 'mediumDate' }}</p>
+                <p class="desc">{{ featuredArticle.description }}</p>
+                <button (click)="selectedArticleUrl = featuredArticle.url" class="read-more">Read More</button>
+            </div>
+        </div>
+    </div>
+        <div class="right">
+            <div class="right-card" *ngFor="let item of top4Articles" (click)="selectedArticle = item">
+                <div class="right-left">
+                    <img [src]="item.urlToImage" alt="News" (error)="item.urlToImage = '/newspaper.jpeg'" class="thumb" />
+                </div>
+                <div class="right-right">
+                    <h4 class="title">{{ item.title }}</h4>
+                    <p class="date">{{ item.publishedAt | date: 'shortDate' }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+            <h2 class="section-title">Weekly Top News</h2>
+            <pre class="sub-section">Stay updated with our weekly Top News, bringing you the latest
+trends, insights, and developments from around the world.
+            </pre>
+            <div class="news-grid">
+            <mat-card class="news-card" *ngFor="let item of remainingArticles" (click)="selectedArticle = item">
+                <img [src] ="item.urlToImage" (error)="item.urlToImage = '/newspaper.jpeg'" alt="news" class="week-img">
+                <p class="date">{{ item.publishedAt | date: 'shortDate' }}</p>
+                <h2 class="title">{{ item.title }}</h2>
+            </mat-card>
+    </div>
+    </div>
+</div>
+<div class="overlay" *ngIf="selectedArticleUrl">
+<div class="iframe-modal">
+    <button class="close-btn" (click)="selectedArticleUrl = null">×</button>
+    <iframe [src]="selectedArticleUrl | safeUrl" frameborder="0"></iframe>
+</div>
+</div>
+<div class="article-overlay" *ngIf="selectedArticle" (click)="selectedArticle = null">
+<div class="article-popup" (click)="$event.stopPropagation()">
+    <img [src]="selectedArticle.urlToImage" alt="Image" class="popup-img" />
+    <h2 class="popup-title">{{ selectedArticle.title }}</h2>
+    <p class="popup-date">{{ selectedArticle.publishedAt | date:'mediumDate' }}</p>
+    <p class="popup-description">{{ selectedArticle.description }}</p>
+    <button class="popup-link" (click)="openInIframe(selectedArticle.url)">Read Full Article</button>
+</div>
+</div>
+
