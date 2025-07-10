@@ -3,7 +3,7 @@ import { NewsServiceService } from '../../services/news-service.service';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { SafeUrlPipe } from '../../pipes/safe-url.pipe';
-import { AnimationOptions } from 'ngx-lottie';
+
 
 
 @Component({
@@ -20,9 +20,6 @@ selectedArticle : any = null
 
 isLoading = true;
 
-lottieOptions : AnimationOptions = {
-  path : '/loader.json'
-}
 
 
 ngOnInit(){
