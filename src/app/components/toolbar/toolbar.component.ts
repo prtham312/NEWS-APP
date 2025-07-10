@@ -8,7 +8,7 @@ import { ContactDetailsComponent } from '../contact-details/contact-details.comp
 
 @Component({
   selector: 'app-toolbar',
-  imports: [MatToolbarModule , MatButtonModule , MatIconModule , ContactDetailsComponent],
+  imports: [MatToolbarModule , MatButtonModule , MatIconModule],
   templateUrl: './toolbar.component.html',
   styleUrl: './toolbar.component.css'
 })

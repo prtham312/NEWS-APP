@@ -1,9 +1,4 @@
-<div *ngIf="isLoading" class="loader-container">
-    <ng-lottie [options]="lottieOptions" style="width: 250px; height: 250px;"></ng-lottie>
-</div>
-
-<div *ngIf="!isLoading">
-    <div class="tech">
+<div class="tech">
     <div class="grid-view">
     <mat-card class="news-card" *ngFor = "let item of techArticle" (click)="selectedArticle = item">
         <img [src] = 'item.urlToImage' (error)="item.urlToImage = '/newspaper.jpeg'" alt="news" class="week-img">
@@ -25,6 +20,5 @@
     <p class="popup-date">{{ selectedArticle.publishedAt | date:'mediumDate' }}</p>
     <p class="popup-description">{{ selectedArticle.description }}</p>
     <button class="popup-link" (click)="openInIframe(selectedArticle.url)">Read Full Article</button>
-</div>
 </div>
 </div>
