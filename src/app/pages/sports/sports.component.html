@@ -1,1 +1,26 @@
-<p>sports works!</p>
+<div class="sport-view">
+  <div class="grid-view">
+    <mat-card *ngFor="let item of articles" (click)="item.flipped = !item.flipped" (mouseleave)="item.flipped=false">
+      <div class="flip-card" [class.flipped]="item.flipped">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img [src]="item.image_url" (error)="item.image_url = '/newspaper.jpeg'" />
+            <div class="overlay-title">{{ item.title }}</div>
+          </div>
+          <div class="flip-card-back">
+            <div class="back-content">
+              <p class="publish-date">{{ item.pubDate | date: 'medium' }}</p>
+              <p class="description">{{ item.description }}</p>
+              <a
+                [href]="item.link"
+                target="_blank"
+                rel="noopener"
+                class="read-more"
+                (click)="$event.stopPropagation()">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

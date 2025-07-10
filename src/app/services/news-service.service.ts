@@ -12,8 +12,6 @@ export class NewsServiceService {
   private readonly wsjUrl = `https://newsapi.org/v2/everything?domains=wsj.com&apiKey=${this.apiKey}`;
   private readonly techUrl = `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${this.apiKey}`
   private readonly businessUrl = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${this.apiKey}`
-  private readonly sportUrl = `https://newsdata.io/api/1/latest?country=in&category=Sports&apikey=pub_b84d9e0665174a3a984c8b0a5b01872e`
-  private readonly carsUrl = `https://newsapi.org/v2/everything?q=tesla&from=2025-06-04&sortBy=publishedAt&apiKey=${this.apiKey}`
 
   getWSJNews(): Observable<any> {
     return this.http.get(this.wsjUrl);
@@ -24,11 +22,12 @@ export class NewsServiceService {
   getBusinessNews() : Observable<any> {
     return this.http.get(this.businessUrl);
   }
-  getSportNews() : Observable<any> {
-    return this.http.get(this.sportUrl);
+  getSportNews(nextPage?: string): Observable<any> {
+  let url = 'https://newsdata.io/api/1/latest?country=in&category=Sports&apikey=pub_b29fda722ea54c248e4d054d6df8ae97';
+  if (nextPage) {
+    url += `&page=${nextPage}`;
   }
-  getCarsNews() : Observable<any> {
-    return this.http.get(this.carsUrl);
-  }
+  return this.http.get(url);
+}
   
 }

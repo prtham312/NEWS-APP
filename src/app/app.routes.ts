@@ -3,7 +3,6 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TechComponent } from './pages/tech/tech.component';
 import { BusinessComponent } from './pages/business/business.component';
-import { CarsComponent } from './pages/cars/cars.component';
 import { SportsComponent } from './pages/sports/sports.component';
 
 export const routes: Routes = [
@@ -14,7 +13,6 @@ export const routes: Routes = [
             {path : 'tech' , component : TechComponent},
             {path : 'business' , component : BusinessComponent},
             {path : 'sports' , component : SportsComponent},
-            {path : 'cars' , component : CarsComponent},
         ]
     }
 ];

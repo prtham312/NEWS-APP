@@ -10,6 +10,7 @@ mat-card{
     background-color: white;
     padding: 0.8rem;
 }
+
 .week-img{
     object-fit: cover;
     width: 100%;
@@ -19,8 +20,8 @@ mat-card{
     color: #888
 }
 h2{
-    font-size: 1.2rem;
-    font-weight: 300;
+    font-size: 1.1rem;
+    font-weight: 500;
     margin-bottom: 4px;
     word-break: break-word;
 }
@@ -121,4 +122,10 @@ iframe {
     border: none;
     background-color: transparent;
     cursor: pointer;
+}
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
 }

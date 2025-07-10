@@ -7,7 +7,7 @@
                 <h2 class="title">{{ featuredArticle.title }}</h2>
                 <p class="date">{{ featuredArticle.publishedAt | date: 'mediumDate' }}</p>
                 <p class="desc">{{ featuredArticle.description }}</p>
-                <button (click)="selectedArticleUrl = featuredArticle.url" class="read-more">Read More</button>
+                <a [href]="featuredArticle.url" target="_blank" class="read-more">Read More</a>
             </div>
         </div>
     </div>
@@ -37,19 +37,13 @@ trends, insights, and developments from around the world.
     </div>
     </div>
 </div>
-<div class="overlay" *ngIf="selectedArticleUrl">
-<div class="iframe-modal">
-    <button class="close-btn" (click)="selectedArticleUrl = null">×</button>
-    <iframe [src]="selectedArticleUrl | safeUrl" frameborder="0"></iframe>
-</div>
-</div>
 <div class="article-overlay" *ngIf="selectedArticle" (click)="selectedArticle = null">
 <div class="article-popup" (click)="$event.stopPropagation()">
     <img [src]="selectedArticle.urlToImage" alt="Image" class="popup-img" />
     <h2 class="popup-title">{{ selectedArticle.title }}</h2>
     <p class="popup-date">{{ selectedArticle.publishedAt | date:'mediumDate' }}</p>
     <p class="popup-description">{{ selectedArticle.description }}</p>
-    <button class="popup-link" (click)="openInIframe(selectedArticle.url)">Read Full Article</button>
+    <a [href]="selectedArticle.url" target="_blank">Read More</a>
 </div>
 </div>
 

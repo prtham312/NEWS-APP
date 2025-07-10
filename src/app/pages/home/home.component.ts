@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { NewsServiceService } from '../../services/news-service.service';
 import {MatCardModule} from '@angular/material/card';
 import { SafeUrlPipe } from '../../pipes/safe-url.pipe';
+import { LottieComponent }  from 'ngx-lottie'; 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, MatCardModule, SafeUrlPipe],
+  imports: [CommonModule, MatCardModule, SafeUrlPipe , LottieComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

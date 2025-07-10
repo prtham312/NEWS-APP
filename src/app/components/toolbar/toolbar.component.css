@@ -32,3 +32,8 @@ mat-toolbar button {
 .contact{
     background-color: rgb(250, 195, 15);
 }
+@media (max-width: 600px) {
+  .contact {
+    display: none !important;
+  }
+}
