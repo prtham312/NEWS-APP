@@ -9,19 +9,13 @@
     </mat-card>
 </div>
 </div>
-<div class="overlay" *ngIf="selectedArticleUrl">
-<div class="iframe-modal">
-    <button class="close-btn" (click)="selectedArticleUrl = null">×</button>
-    <iframe [src]="selectedArticleUrl | safeUrl" frameborder="0"></iframe>
-</div>
-</div>
 <div class="article-overlay" *ngIf="selectedArticle" (click)="selectedArticle = null">
 <div class="article-popup" (click)="$event.stopPropagation()">
     <img [src]="selectedArticle.urlToImage" alt="Image" class="popup-img" />
     <h2 class="popup-title">{{ selectedArticle.title }}</h2>
     <p class="popup-date">{{ selectedArticle.publishedAt | date:'mediumDate' }}</p>
     <p class="popup-description">{{ selectedArticle.description }}</p>
-    <button class="popup-link" (click)="openInIframe(selectedArticle.url)">Read Full Article</button>
+    <a class="popup-link" [href]="(selectedArticle.url)" target="_blank">Read Full Article</a>
 </div>
 </div>
 </div>

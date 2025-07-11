@@ -31,9 +31,6 @@ ngOnInit() : void {
   this.remainingArticles = this.articles.slice(5);
   })
 }
-openInIframe(url: string): void {
-  this.selectedArticleUrl = url;
-  this.selectedArticle = null; 
-}
+
 
 }
