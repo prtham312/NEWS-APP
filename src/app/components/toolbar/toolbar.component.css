@@ -8,6 +8,7 @@ mat-toolbar{
     display: flex;
     flex-direction: column;
     align-items:end;
+    cursor: pointer;
 }
 .n24{
     font-size: 3rem;

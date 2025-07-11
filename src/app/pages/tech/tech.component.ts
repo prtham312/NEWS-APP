@@ -3,12 +3,13 @@ import { NewsServiceService } from '../../services/news-service.service';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { SafeUrlPipe } from '../../pipes/safe-url.pipe';
+import { CoffeeLoaderComponent } from '../../shared/coffee-loader/coffee-loader.component';
 
 
 
 @Component({
   selector: 'app-tech',
-  imports: [MatCardModule , SafeUrlPipe , CommonModule],
+  imports: [MatCardModule , SafeUrlPipe , CommonModule , CoffeeLoaderComponent],
   templateUrl: './tech.component.html',
   styleUrl: './tech.component.css'
 })

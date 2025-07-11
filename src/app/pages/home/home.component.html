@@ -1,3 +1,5 @@
+<app-coffee-loader *ngIf="isLoading"></app-coffee-loader>
+<div *ngIf="!isLoading">
 <div class="home">
     <div class="top">
         <div class="left" *ngIf="featuredArticle">
@@ -46,4 +48,4 @@ trends, insights, and developments from around the world.
     <a [href]="selectedArticle.url" target="_blank">Read More</a>
 </div>
 </div>
-
+</div>

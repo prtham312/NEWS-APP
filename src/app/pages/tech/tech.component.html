@@ -1,3 +1,5 @@
+<app-coffee-loader *ngIf="isLoading"></app-coffee-loader>
+<div *ngIf="!isLoading">
 <div class="tech">
     <div class="grid-view">
     <mat-card class="news-card" *ngFor = "let item of techArticle" (click)="selectedArticle = item">
@@ -20,5 +22,6 @@
     <p class="popup-date">{{ selectedArticle.publishedAt | date:'mediumDate' }}</p>
     <p class="popup-description">{{ selectedArticle.description }}</p>
     <button class="popup-link" (click)="openInIframe(selectedArticle.url)">Read Full Article</button>
+</div>
 </div>
 </div>

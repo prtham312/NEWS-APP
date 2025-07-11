@@ -1,3 +1,5 @@
+<app-coffee-loader *ngIf="isLoading"></app-coffee-loader>
+<div *ngIf="!isLoading">
 <div class="sport-view">
   <div class="grid-view">
     <mat-card *ngFor="let item of articles" (click)="item.flipped = !item.flipped" (mouseleave)="item.flipped=false">
@@ -23,4 +25,5 @@
       </div>
     </mat-card>
   </div>
+</div>
 </div>

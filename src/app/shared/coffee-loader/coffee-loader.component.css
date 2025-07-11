@@ -1,0 +1,69 @@
+.loader-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+/* Cup with Handle */
+.cup-container {
+  position: relative;
+  width: 200px;
+  height: 220px;
+}
+
+/* Main Cup */
+.cup {
+  position: relative;
+  width: 160px;
+  height: 200px;
+  border: 8px solid #4b3832;
+  border-radius: 0 0 20px 20px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Coffee filling upwards */
+.coffee {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(#a87550, #6b463f);
+  animation: fillUp 3s infinite ease-in-out;
+}
+
+@keyframes fillUp {
+  0% { height: 0%; }
+  50% { height: 70%; }
+  100% { height: 0%; }
+}
+
+/* Handle on right side */
+.handle {
+  position: absolute;
+  right: -30px;
+  top: 60px;
+  width: 45px;
+  height: 80px;
+  border: 8px solid #4b3832;
+  border-left: none;
+  border-radius: 0 40px 40px 0;
+  background: transparent;
+}
+
+/* Loading Text */
+.loading-text {
+  margin-top: 25px;
+  font-size: 1.4rem;
+  color: #4b3832;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
